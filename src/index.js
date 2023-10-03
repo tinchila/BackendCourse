@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from 'express';
 import http from 'http';
 import path from 'path';
@@ -29,3 +30,8 @@ const PORT = 8080;
 httpServer.listen(PORT, () => {
     console.log(`Server is running at port ${PORT}`);
 });
+=======
+'use strict'
+
+console.log('Hello World!')
+>>>>>>> 63992ae5273c91ce5b4dfa082cea53a7c12dbbd7
