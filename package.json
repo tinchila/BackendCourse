@@ -12,11 +12,7 @@
         "start": "node src/index.js"
     },
     "keywords": [],
-<<<<<<< HEAD
-    "author": "Martin Dotto <tincho.dotto@gmail.com> (https://github.com/tinchila)",
-=======
     "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandersgutierrez.github.io/)",
->>>>>>> 63992ae5273c91ce5b4dfa082cea53a7c12dbbd7
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -37,13 +33,10 @@
     "engines": {
         "node": ">=18",
         "npm": ">=8"
-<<<<<<< HEAD
     },
     "dependencies": {
         "express": "4.18.2",
         "morgan": "1.10.0",
         "multer": "1.4.5-lts.1"
-=======
->>>>>>> 63992ae5273c91ce5b4dfa082cea53a7c12dbbd7
     }
 }
