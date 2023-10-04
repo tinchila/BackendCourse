@@ -2,6 +2,7 @@ import { Router } from 'express';
 import product from '../../API/products.js';
 import multer from 'multer';
 
+
 const router = Router();
 
 // Subir Archivos
@@ -14,13 +15,26 @@ const storage = multer.diskStorage({
   },
 });
 
-router.use(multer({ storage }).single('thumbnail'));
+const upload = multer({ storage });
+
+router.post('/', adminOrClient, upload.single('thumbnail'), async (req, res) => {
+  try {
+    const uploadedFile = req.file;
+    const productNew = req.body;
+    const addProduct = await product.save(productNew);
+
+    return res.json({ agregado: addProduct, file: uploadedFile });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 // Middlewares
 const existProduct = async function (req, res, next) {
   const allProducts = await product.getAll();
-  for (const el of allProducts) {
-    if (el.id === Number(req.params.id)) {
+  for (const i of allProducts) {
+    if (i.id === Number(req.params.id)) {
       return next();
     }
   }
