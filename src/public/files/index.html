@@ -6,6 +6,11 @@
     <title>NODE JS</title>
 </head>
 <body>
-    <h1>Pre Entrega 1</h1>
+    <h1>Productos Agregados</h1>
+    <ul>
+        {{#each products}}
+            <li>{{this.name}}</li>
+        {{/each}}
+    </ul>
 </body>
 </html>

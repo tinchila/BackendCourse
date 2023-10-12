@@ -3,12 +3,13 @@ import product from '../API/products.js';
 import fs from 'fs'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import Container from './container.js';
 
-class Cart {
+class Cart extends Container {
     constructor() {
-        const currentFileURL = import.meta.url;
-        const currentFilePath = fileURLToPath(currentFileURL);
-        this.pathBD = `${dirname(currentFilePath)}/dataBase/cart.json`;
+        const currentFileURL = import.meta.url
+        const currentFilePath = fileURLToPath(currentFileURL)
+        super(`${dirname(currentFilePath)}/dataBase/cart.json`)
     }
 
     //Crear Carrito

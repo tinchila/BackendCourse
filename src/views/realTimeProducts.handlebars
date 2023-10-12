@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos en Tiempo Real</title>
+</head>
+<body>
+    <h1>Real-Time Products</h1>
+    <ul>
+        {{#each products}}
+        <li>{{this.name}} - Price: ${{this.price}}</li>
+        {{/each}}
+    </ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('productAdded', (data) => {
+            const { product } = data;
+            const newItem = document.createElement('li');
+            newItem.textContent = `${product.name} - Price: $${product.price}`;
+            document.querySelector('ul').appendChild(newItem);
+        });
+    </script>
+</body>
+</html>

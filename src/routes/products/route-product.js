@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import product from '../../API/products.js';
 import multer from 'multer';
+import { Server } from 'socket.io';
+import { httpServer } from '../index.js';
 
-
+const io = new Server(httpServer);
 const router = Router();
 
 // Subir Archivos
@@ -22,6 +24,7 @@ router.post('/', adminOrClient, upload.single('thumbnail'), async (req, res) => 
     const uploadedFile = req.file;
     const productNew = req.body;
     const addProduct = await product.save(productNew);
+    io.emit('productAdded', { product: addProduct });
 
     return res.json({ agregado: addProduct, file: uploadedFile });
   } catch (error) {

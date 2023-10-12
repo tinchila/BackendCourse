@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Productos Agregados</h1>
+    <ul id="productList">
+    {{#each products}}
+    <li>{{name}} - {{price}}</li>
+    {{/each}}
+</ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    socket.on('productAdded', (data) => {
+        const newProduct = data.product;
+    });
+</script>
+</body>
+</html>

@@ -1,15 +1,17 @@
 
-// import container from '../API/container.js';
+import Container from './container.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-// import fs from 'fs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
-class Products {
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+
+class Products extends Container {
     constructor() {
-        this.pathBD = `${__dirname}/dataBase/products.json`;
+        const currentFileURL = import.meta.url
+        const currentFilePath = fileURLToPath(currentFileURL)
+        super(`${dirname(currentFilePath)}/dataBase/products.json`)
     }
 
     async save(obj) {
